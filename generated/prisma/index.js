@@ -164,7 +164,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/vivaldi-dev/Documents/Node/challenge/generated/prisma",
+      "value": "/home/vivaldi-dev/Documents/Node/challenge2/agritech-backend-challenge/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -178,11 +178,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/vivaldi-dev/Documents/Node/challenge/prisma/schema.prisma",
+    "sourceFilePath": "/home/vivaldi-dev/Documents/Node/challenge2/agritech-backend-challenge/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -192,6 +192,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {

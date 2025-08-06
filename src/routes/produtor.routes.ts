@@ -1,12 +1,9 @@
 import { Router } from "express";
 import { ProdutorController } from "../controller/produtor.controller";
 
-
 const produtoresrouter = Router();
-produtoresrouter.post("/produtores", ProdutorController.create);
-produtoresrouter.post("/produtores/atribuir", ProdutorController.atribuir);
-produtoresrouter.put("/produtores/transferir", ProdutorController.transferir);
-
-
+produtoresrouter.post("/", ProdutorController.create); 
+produtoresrouter.post("/atribuir", ProdutorController.atribuir); 
+produtoresrouter.put("/transferir", ProdutorController.transferir); 
 
 export default produtoresrouter;

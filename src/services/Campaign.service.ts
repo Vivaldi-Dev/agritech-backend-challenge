@@ -12,6 +12,14 @@ interface CampanhaDTO {
 
 export class Campaign {
     static async create(data: CampanhaDTO) {
+        const empresaExistente = await prisma.empresa.findUnique({
+            where: { id: data.empresaId }
+        });
+
+        if (!empresaExistente) {
+            throw new Error('Empresa não encontrada');
+        }
+
         return prisma.campanha.create({
             data: {
                 nome: data.nome,
