@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Empresa {
+  id        Int        @id @default(autoincrement())
+  nome      String
+  cnpj      String     @unique
+  telefone  String?
+  email     String
+  campanhas Campanha[]
+}
+
+model Campanha {
+  id                  Int                @id @default(autoincrement())
+  nome                String
+  empresaId           Int
+  dataInicio          DateTime
+  dataFim             DateTime?
+  empresa             Empresa            @relation(fields: [empresaId], references: [id])
+  tecnicos            Tecnico[]
+  produtoresCampanhas ProdutorCampanha[]
+}
+
+model Tecnico {
+  id                  Int                @id @default(autoincrement())
+  nome                String
+  campanhaId          Int
+  campanha            Campanha           @relation(fields: [campanhaId], references: [id])
+  produtoresCampanhas ProdutorCampanha[]
+}
+
+model Produtor {
+  id                  Int                @id @default(autoincrement())
+  nome                String
+  localizacao         String
+  produtoresCampanhas ProdutorCampanha[]
+}
+
+model ProdutorCampanha {
+  id                Int       @id @default(autoincrement())
+  produtorId        Int
+  campanhaId        Int
+  tecnicoId         Int
+  dataRegistro      DateTime  @default(now())
+  dataTransferencia DateTime?
+  produtor          Produtor  @relation(fields: [produtorId], references: [id])
+  campanha          Campanha  @relation(fields: [campanhaId], references: [id])
+  tecnico           Tecnico   @relation(fields: [tecnicoId], references: [id])
+}
