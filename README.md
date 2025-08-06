@@ -1,4 +1,3 @@
-Segue um **README.md organizado e completo** para o seu projeto, explicando desde a configuração até o uso dos endpoints no Postman.
 
 ---
 
