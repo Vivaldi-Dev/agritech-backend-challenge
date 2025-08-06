@@ -270,12 +270,6 @@ Cada controller chama um **service** responsável pela lógica de negócio.
 
 ---
 
-## **10. Futuras Melhorias**
-
-* Autenticação JWT
-* Paginação nas listagens
-* Testes unitários e de integração
-* Documentação Swagger/OpenAPI
 
 ---
 
